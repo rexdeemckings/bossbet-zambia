@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BossBet Zambia</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #07130e;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .card {
+      width: 100%;
+      max-width: 390px;
+      padding: 25px;
+      border-radius: 18px;
+      background: #102219;
+      border: 1px solid #284737;
+    }
+    h1 { color: #20d879; }
+    p { color: #b4c9bb; line-height: 1.5; }
+    input, button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border-radius: 9px;
+      font-size: 16px;
+    }
+    input {
+      background: #07130e;
+      color: white;
+      border: 1px solid #456451;
+    }
+    button {
+      background: #20d879;
+      color: #062010;
+      border: 0;
+      font-weight: bold;
+    }
+    #status { overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>BOSSBET 🇿🇲</h1>
+    <p>Sign in using your Zambian phone number.</p>
+
+    <form id="loginForm">
+      <label for="phone">Phone number</label>
+      <input id="phone" type="tel"
+        placeholder="097XXXXXXX"
+        autocomplete="tel"
+        required
+        pattern="(\+260|0)?[0-9]{9,12}">
+      <button type="submit">Continue</button>
+    </form>
+
+    <p id="status" role="status">
+      Phone verification must be connected to a secure server.
+    </p>
+  </main>
+
+  <script>
+    document.getElementById("loginForm")
+      .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const phone = document.getElementById("phone")
+          .value.trim();
+
+        document.getElementById("status").textContent =
+          "Login screen ready. SMS verification for this number " +
+          "must be implemented on a secure backend.";
+      });
+  </script>
+</body>
+</html>
